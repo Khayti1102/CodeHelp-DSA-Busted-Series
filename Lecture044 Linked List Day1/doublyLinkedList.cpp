@@ -133,10 +133,18 @@ void deleteNode(int position, Node* & head) {
             curr = curr -> next;
             cnt++;
         }
+        if(curr->next==NULL){
+        prev->next=curr->next;
+        curr->prev=NULL;
+        tail=prev;
+
+        
+    }
 
         curr -> prev = NULL;
         prev -> next = curr -> next;
         curr -> next = NULL;
+        curr->next->prev=prev;
 
         delete curr;
 
